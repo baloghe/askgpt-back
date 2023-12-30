@@ -13,7 +13,12 @@ const ChatGPT_Key	= process.env.REACT_APP_CHATGPT_KEY;
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+credentials: true,
+methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+allowedHeaders: ['Content-Type', 'Authorization'],
+origin: ['https://askgpt-ten.vercel.app:3000']
+}));
 
 //ChatGPT config
 const openai = new OpenAI({
@@ -25,6 +30,8 @@ app.listen(port, ()=> console.log(`Server is running on port ${port}` ));
 
 // GET request qould serve some info
 app.get('/', (req, res) => {
+  
+	res.header("Access-Control-Allow-Origin", "*");
 	res.send(`This is the backend Node server for <<askgpt>> on port ${port}`);
 });
 
