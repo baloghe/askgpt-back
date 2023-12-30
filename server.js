@@ -31,7 +31,7 @@ app.listen(port, ()=> console.log(`Server is running on port ${port}` ));
 // GET request qould serve some info
 app.get('/', (req, res) => {
   
-	res.header("Access-Control-Allow-Origin", "*");
+	//res.header("Access-Control-Allow-Origin", "*");
 	res.send(`This is the backend Node server for <<askgpt>> on port ${port}`);
 });
 
@@ -49,7 +49,7 @@ app.post("/cgpt", async (req, res) => {
     messages: 	messages
   });
   */
-  res.header("Access-Control-Allow-Origin", "*");
+  //res.header("Access-Control-Allow-Origin", "*");
   
   res.send(`Good morning cgpt`);
   //res.send(completion.choices[0].message.content);
@@ -61,7 +61,7 @@ app.post("/post", async (req, res) => {
   console.log(`server :: req.body`);
   console.log(req.body);
   
-  res.header("Access-Control-Allow-Origin", "*");
+  //res.header("Access-Control-Allow-Origin", "*");
   
   res.send(`Good morning`);
 });
@@ -72,7 +72,7 @@ app.post("/", async (req, res) => {
   console.log(`server :: req.body`);
   console.log(req.body);
   
-  res.header("Access-Control-Allow-Origin", "*");
+  //res.header("Access-Control-Allow-Origin", "*");
   
   res.send(`Empty branch found`);
 });
