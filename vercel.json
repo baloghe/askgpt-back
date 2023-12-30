@@ -7,6 +7,5 @@
       // Specify the NPM module that is used for the build
       "use": "@now/node"
     }
-  ],
-  "rewrites": [{ "source": "/cgpt/(.*)", "destination": "/cgpt" }]
+  ]
 }
