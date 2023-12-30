@@ -34,23 +34,18 @@ app.post("/cgpt", async (req, res) => {
   
   //console.log(`server :: req`);
   //console.log(req.body);
-
+/*
   const completion = await openai.chat.completions.create({
     model: 		settings.model,
     max_tokens: 512,
     temperature:settings.temperature,
     messages: 	messages
   });
-  
-  /*
-  console.log(`completion ::`);
-  console.log(completion);
-  console.log(completion.choices[0].message);
   */
-  
-  //res.send(`Good morning cgpt`);
   res.header("Access-Control-Allow-Origin", "*");
-  res.send(completion.choices[0].message.content);
+  
+  res.send(`Good morning cgpt`);
+  //res.send(completion.choices[0].message.content);
 });
 
 // API request for testing
@@ -59,7 +54,20 @@ app.post("/post", async (req, res) => {
   console.log(`server :: req.body`);
   console.log(req.body);
   
+  res.header("Access-Control-Allow-Origin", "*");
+  
   res.send(`Good morning`);
+});
+
+// API request for testing
+app.post("/", async (req, res) => {
+  
+  console.log(`server :: req.body`);
+  console.log(req.body);
+  
+  res.header("Access-Control-Allow-Origin", "*");
+  
+  res.send(`Empty branch found`);
 });
 
 module.exports = app;
