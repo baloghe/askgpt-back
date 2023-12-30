@@ -8,7 +8,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 // defining the server port
-const port			= process.env.REACT_APP_BACKEND_PORT;
+const port			= 3000;//process.env.REACT_APP_BACKEND_PORT;
 const ChatGPT_Key	= process.env.REACT_APP_CHATGPT_KEY;
 
 const app = express();
