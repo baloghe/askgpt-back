@@ -49,6 +49,7 @@ app.post("/cgpt", async (req, res) => {
   */
   
   //res.send(`Good morning cgpt`);
+  res.header("Access-Control-Allow-Origin", "*");
   res.send(completion.choices[0].message.content);
 });
 
