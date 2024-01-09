@@ -3,6 +3,10 @@
         {
             "source": "/hello",
             "destination": "/api/hello"
+        },
+        {
+            "source": "/oaitst",
+            "destination": "/api/oaitst"
         }
     ]
 }
