@@ -14,7 +14,7 @@ async function clozeTst(req, res){
 	let tense='present';
 	let level='beginner';
 	
-	let tmpl = `create a single Cloze-test in ${target_lang} targeted to ${level}-level students in ${tense} tense using this word: ${word}. The sentence should be numbered. Marke each missing word as ___. The correct answer should be coming after the sentence in brackets. After that comes an english translation of the entire sentence in curly brackets.`;
+	let tmpl = `create a single Cloze-test of 3 sentences in ${target_lang} targeted to ${level}-level students in ${tense} tense using this word: ${word}. The sentence should be numbered. Marke each missing word as ___. The correct answer should be coming after the sentence in brackets. After that comes an english translation of the entire sentence in curly brackets.`;
 	
 	const completion = await openai.chat.completions.create({
 		model: 		'gpt-3.5-turbo',
