@@ -15,7 +15,7 @@ async function clozeTst(req, res){
 	let level='beginner';
 	let wcase='genitive';
 	
-	let tmpl = `[X] := ${wcase} case of the ${target_lang} word ${word} without any apostrophe. generate a sentence using [X], put the [X] in curly brackets. write down the ${target_lang} version. translate the entire sentence to english. write down the english version`;
+	let tmpl = `[X] := ${wcase} case of the ${target_lang} word ${word} without any apostrophe. generate a sentence using [X], put [X] in curly brackets. print out the ${target_lang} version. translate the entire sentence to english. print out the english version`;
 	
 	const completion = await openai.chat.completions.create({
 		model: 		'gpt-3.5-turbo',
