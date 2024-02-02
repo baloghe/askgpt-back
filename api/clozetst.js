@@ -14,7 +14,7 @@ async function clozeTst(req, res){
 	let tense='present';
 	let level='beginner';
 	
-	let tmpl = `As a ${target_lang} teacher help me create a Cloze-test of 3 sentences targeted to ${level}-level students in ${tense} tense using the word ${word} in any grammatical case. Replace missing words with ___. The correct answer should be coming after the sentence in brackets. After that comes an english translation of the entire sentence in curly brackets.`;
+	let tmpl = `You are a language teacher. Generate 3 turkish sentences for beginner-level students. The sentences should contain the word "${word}" or its modified version. Replace the occurences of ${word} by ____ and write it in brackets after each sentence. Provide an English translation for each sentence in curly brackets.`;
 	
 	const completion = await openai.chat.completions.create({
 		model: 		'gpt-3.5-turbo',
