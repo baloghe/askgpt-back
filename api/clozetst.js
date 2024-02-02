@@ -14,13 +14,13 @@ async function clozeTst(req, res){
 	let tense='present';
 	let level='beginner';
 	
-	let tmpl = `create 1 Cloze-test in ${target_lang} targeted to a ${level}-level student in ${word} tense using this word: ${word}. Place a $ sign before the test. Mark the hidden word with ##. Provide the completed test in brackets, followed by an English translation in curly brackets`;
+	let tmpl = `create 1 Cloze-test in ${target_lang} targeted to ${level}-level students in ${tense} tense using this word: ${word}. Place a $ sign before the test. Mark the hidden word with ##. Provide the completed test in brackets, followed by an English translation in curly brackets`;
 	
 	const completion = await openai.chat.completions.create({
 		model: 		'gpt-3.5-turbo',
 		max_tokens: 512,
 		temperature:0.2,
-		messages: 	[{"role": "system", "content": 'be concise'},
+		messages: 	[{"role": "system", "content": 'explain things like a language teacher'},
 					 {"role": "user", "content": tmpl}
 					]
 	  });
