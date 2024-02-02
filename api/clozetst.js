@@ -21,7 +21,7 @@ async function clozeTst(req, res){
 		model: 		'gpt-3.5-turbo',
 		max_tokens: 512,
 		temperature:0.5,
-		messages: 	[{"role": "system", "content": 'use a style appropriate for a teacher'},
+		messages: 	[/*{"role": "system", "content": 'use a style appropriate for a teacher'},*/
 					 {"role": "user", "content": tmpl}
 					]
 	  });
