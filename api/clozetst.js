@@ -13,8 +13,9 @@ async function clozeTst(req, res){
 	let word='tabanca';
 	let tense='present';
 	let level='beginner';
+	let wcase='genitive';
 	
-	let tmpl = `You are a language teacher. Generate 3 turkish sentences for beginner-level students. The sentences should contain the word "${word}" or its modified version. Replace the occurences of ${word} by ____ and write it in brackets after each sentence. Provide an English translation for each sentence in curly brackets.`;
+	let tmpl = `[X] := ${wcase} case of the ${target_lang} word ${word} without any apostrophe. generate a sentence using [X], put the [X] in curly brackets. write down the ${target_lang} version. translate the entire sentence to english. write down the english version`;
 	
 	const completion = await openai.chat.completions.create({
 		model: 		'gpt-3.5-turbo',
