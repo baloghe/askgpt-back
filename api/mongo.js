@@ -1,0 +1,33 @@
+const { MongoClient } = require('mongodb');
+
+const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PW}@${process.env.MONGODB_URL}/${process.env.MONGODB_DB}`;
+
+const mongoClient = new MongoClient(uri);
+//console.log("Mongo DB URL: ", mongoClient.s.url);
+
+async function findListing(criteria){
+  let result = [];
+  await mongoClient.connect()
+    .then(connection=>connection.db(process.env.MONGODB_DB))
+    //.then(db=>db.collection('listingsAndReviews'))
+	.then(db=>db.collection('quiz'))
+    //.then(listingsAndReviews=>listingsAndReviews.findOne(criteria))
+	.then(quiz=>quiz.findOne(criteria))
+    .then(listing=>{ result = listing})
+    .catch(error => console.log(error))
+	;
+  return result;
+}
+
+async function listDB (req, res) {
+	
+	try {
+		const data=await findListing({});
+		res.json(data);
+	} catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+	
+}
+
+module.exports = listDB;

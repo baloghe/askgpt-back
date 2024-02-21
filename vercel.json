@@ -7,6 +7,14 @@
         {
             "source": "/oaitst",
             "destination": "/api/oaitst"
+        },
+        {
+            "source": "/mongo",
+            "destination": "/api/mongo"
+        },
+        {
+            "source": "/loadq",
+            "destination": "/api/loadq"
         }
     ]
 }
