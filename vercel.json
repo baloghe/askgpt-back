@@ -15,6 +15,10 @@
         {
             "source": "/loadq",
             "destination": "/api/loadq"
+        },
+        {
+            "source": "/qtitles",
+            "destination": "/api/qtitles"
         }
     ]
 }
