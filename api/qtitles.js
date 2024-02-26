@@ -14,7 +14,7 @@ async function getTitles(){
     .then(q=>q.aggregate(
 		  [
 		    { $unwind : "$sentences" } ,
-		    { $group : { title : "$title" , cnt : { $sum : 1 } } }
+		    { $group : { _id : "$title" , title: { $first : "$title" } , cnt : { $count : {} } } }
 		  ]
 		)
 	     )
