@@ -13,8 +13,8 @@ async function getTitles(){
     //.then(q=>q.find({}))
     .then(q=>q.aggregate(
 		  [
-		    { $unwind : "$sentences" } /*,
-		    { $group : { title : "$title" , cnt : { $sum : 1 } } }*/
+		    { $unwind : "$sentences" } ,
+		    { $group : { title : "$title" , cnt : { $sum : 1 } } }
 		  ]
 		)
 	     )
