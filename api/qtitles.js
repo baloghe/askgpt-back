@@ -8,10 +8,17 @@ async function getTitles(){
   let result = [];
   await mongoClient.connect()
     .then(connection=>connection.db(process.env.MONGODB_DB))
-	.then(db=>db.collection('quiz'))
-	.then(q=>q.find({}, {projection: {title: 1} } ))
-	.then(cursor=>cursor.toArray())
-    .then(listing=>{ result = listing.map(a=>a.title)})
+    .then(db=>db.collection('quiz'))
+    //.then(q=>q.find({}, {projection: {title: 1} } ))
+    .then(q=>q.aggregate(
+		  [
+		    { $unwind : "$sentences" },
+		    { $group : { title : "$title" , cnt : { $sum : 1 } } }
+		  ]
+		)
+	     )
+    .then(cursor=>cursor.toArray())
+    .then(listing=>{ result = listing.map(a=>{return {title: a.title , cnt: a.cnt} } )})
     .catch(error => console.log(error))
 	;
   return result;
