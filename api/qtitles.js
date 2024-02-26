@@ -10,7 +10,7 @@ async function getTitles(){
     .then(connection=>connection.db(process.env.MONGODB_DB))
     .then(db=>db.collection('quiz'))
     //.then(q=>q.find({}, {projection: {title: 1} } ))
-    .then(q=>q.find({}))
+    //.then(q=>q.find({}))
     .then(q=>q.aggregate(
 		  [
 		    { $unwind : "$sentences" } /*,
